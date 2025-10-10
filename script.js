@@ -1,5 +1,15 @@
 // Navigation active state management
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animation library
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+    
     // Get current page filename
     const currentPage = window.location.pathname.split('/').pop();
     
