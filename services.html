@@ -6,27 +6,38 @@
     <title>RCCG New Life Assembly - Services</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header with Navigation -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true // Animation only happens once when scrolling
+  });
+</script>
+    
+    <!-- Header with navigation -->
      <header class="glass">
         <div class="logo">
             <i class="fas fa-church logo-icon"></i>
-            <h1>RCCG New Life Assembly Area</h1>
+            <h1 data-aos="fade-up" data-aos-delay="300">RCCG New Life Assembly Area</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="rccg.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="sermons.html">Sermons</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li data-aos="fade-down" data-aos-delay="50"><a href="index.html" class="nav-link">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="100"><a href="about.html" class="nav-link">About Us</a></li>
+                <li data-aos="fade-down" data-aos-delay="150"><a href="services.html" class="nav-link">Services</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="sermons.html" class="nav-link">Sermons</a></li>
+                <li data-aos="fade-down" data-aos-delay="250"><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
         </nav>
      </header>
 
      <!-- Services Section -->
-      <main>
+      <main data-aos="fade-down" data-aos-delay="50">
         <section class="services-section">
             <div class="container glass">
                 <h2>Our Services</h2>
