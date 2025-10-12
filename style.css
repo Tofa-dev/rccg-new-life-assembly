@@ -18,7 +18,10 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1a3a6c, #0d1b2a);
+  background: url('images/logo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   color: var(--accent);
   min-height: 100vh;
   overflow-x: hidden;
@@ -32,10 +35,9 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
-      radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
-  z-index: -1;
+  background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(13, 27, 42, 0.85)); /* Increased opacity */
+    z-index: -1;
+  
 }
 
 /* Glass Morphism Base */
@@ -802,7 +804,24 @@ footer {
   opacity: 0.8;
 }
 
+.rccg-logo {
+  width: 60px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Design */
+@media (max-width: 768px) {
+  .rccg-logo {
+    width: 50px;
+  }
+
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+}
 @media (max-width: 992px) {
   .hero-content h1 {
       font-size: 2.8rem;
