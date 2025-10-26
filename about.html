@@ -62,32 +62,50 @@
         </section>
 
         <!-- Leadership Section -->
-         <section class="Leadership-section glass">
-            <h2>Our Leadership</h2>
-            <div class="Leadership-grip">
-                <div class="Leader-card glass">
-                    <div class="leader-image"></div>
-                    <h3>Pastor Yemi Oyewole</h3>
-                    <p>Pastor in charge of Area</p>
-                </div>
-                <div class="Leader-card glass">
-                    <div class="leader-image"></div>
-                    <h3>Pastor Mrs Oyewole</h3>
-                    <p>Wife of pastor in charge of Area</p>
-                </div>
-                <div class="Leader-card glass">
-                    <div class="leader-image"></div>
-                    <h3>Pastor Mrs Gbemi Bolarinwa</h3>
-                    <p>Pastor in charge of Children Church</p>
-                </div>
-                <div class="Leader-card glass">
-                    <div class="leader-image"></div>
-                    <h3>Mr Okeowo Victor</h3>
-                    <p>Acting president in charge of Youth</p>
-                </div>
+         <!-- Leadership Section -->
+<section class="Leadership-section glass">
+    <h2>Our Leadership</h2>
+    <div class="Leadership-grip">
+        <div class="leader-card glass">
+            <div onclick="openFullScreen('images/pastor-yemi.jpg')" class="leader-image-wrapper">
+                <img src="images/pastor-yemi.jpg" alt="Pastor Yemi Oyewole" class="leader-image">
             </div>
-         </section>
+            <h3>Pastor Yemi Oyewole</h3>
+            <p>Pastor in charge of Area</p>
+        </div>
+        
+        <div class="leader-card glass">
+            <div onclick="openFullScreen('images/pastor-mrs-oyewole.jpg')" class="leader-image-wrapper">
+                <img src="images/pastor-mrs-oyewole.jpg" alt="Pastor Mrs Oyewole" class="leader-image">
+            </div>
+            <h3>Pastor Mrs Oyewole</h3>
+            <p>Wife of pastor in charge of Area</p>
+        </div>
+        
+        <div class="leader-card glass">
+            <div onclick="openFullScreen('images/pastor-gbemi.jpg')" class="leader-image-wrapper">
+                <img src="images/pastor-gbemi.jpg" alt="Pastor Mrs Gbemi Bolarinwa" class="leader-image">
+            </div>
+            <h3>Pastor Mrs Gbemi Bolarinwa</h3>
+            <p>Pastor in charge of Children Church</p>
+        </div>
+        
+        <div class="leader-card glass">
+            <div onclick="" class="leader-image-wrapper">
+                <img src= class="leader-image">
+            </div>
+            <h3>Pastor Kuti</h3>
+            <p>Pastor  In Charge Of Youth</p>
+        </div>
+    </div>
+</section>
       </main>
+      <!-- Full Screen Modal -->
+      <div id="fullScreenModal" class="full-screen-modal" onclick="closeFullScreen()">
+        <span class="close-btn">&times;</span>
+        <img class="full-screen-image" id="fullScreenImage" src="" alt="Full Screen Image">
+    </div>
+    
 
       <!-- Footer -->
        <footer class="glass">
@@ -97,16 +115,16 @@
                 <h3>RCCG New Life Assembly Area</h3>
             </div>
             <div class="footer-contact">
-                <p><i class="fas fa-map-marker-alt"></i>Hill Top Street</p>
+                <p><i class="fas fa-map-marker-alt"></i>31, Hill Top Street</p>
                 <p><i class="fas fa phone"></i></p>
-                <p><i class="fas fa-envelope"></i></p>
+                <p><i class="fas fa-envelope"></i>newlifeassembllyarea@gmail.com</p>
             </div>
             <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/share/17D6BdmU7n/"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="https://vt.tiktok.com/ZSUSMQoeh/"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
        </footer>
