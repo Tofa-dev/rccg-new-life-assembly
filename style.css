@@ -62,6 +62,7 @@ header {
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  text-shadow: 1px 1px 1px red;
 }
 
 .logo {
