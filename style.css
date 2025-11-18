@@ -1,1271 +1,278 @@
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-:root {
-  --primary: #1a3a6c;
-  --secondary: #e63946;
-  --accent: #f1faee;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-}
-
-body {
-  background: url('images/logo.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  color: var(--accent);
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(13, 27, 42, 0.85)); /* Increased opacity */
-    z-index: -1;
-  
-}
-
-/* Glass Morphism Base */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  box-shadow: var(--glass-shadow);
-  overflow: hidden;
-}
-
-/* Header & Navigation */
-header {
-  padding: 1.5rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  transition: all 0.3s ease;
-  text-shadow: 1px 1px 1px red;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo i {
-  font-size: 2.2rem;
-  color: var(--accent);
-}
-
-.logo h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(to right, var(--accent), #a8dadc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-nav a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-nav a:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-nav a.active {
-  background: rgba(230, 57, 70, 0.3);
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: var(--secondary);
-  border-radius: 3px;
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after,
-nav a.active::after {
-  width: 70%;
-}
-
-/* Main Content */
-main {
-  margin-top: 100px;
-  padding-bottom: 5rem;
-}
-
-/* Hero Section */
-.hero-section {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10%;
-}
-
-.hero-content {
-  max-width: 700px;
-  text-align: center;
-  padding: 3rem;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.hero-btns {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-/* Events Section */
-.events-section {
-  padding: 4rem 5%;
-  margin-top: 3rem;
-}
-
-.events-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.event-card {
-  display: flex;
-  padding: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.event-card:hover {
-  transform: translateY(-5px);
-}
-
-.event-date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 80px;
-  height: 80px;
-  background: var(--secondary);
-  border-radius: 12px;
-  margin-right: 1.5rem;
-  flex-shrink: 0;
-}
-
-.event-date .day {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.event-date .month {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
-.event-info h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-}
-
-.event-info p {
-  margin-bottom: 0.3rem;
-  opacity: 0.9;
-}
-
-.event-info img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-/* About Section */
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 5%;
-  margin: 0 auto;
-  margin-bottom: 3rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-  width: 100%;
-}
-
-.about-content {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-}
-
-.about-text {
-  flex: 1;
-  max-width: 800px;
-  text-align: center;
-  padding: 2rem;
-}
-
-.about-text p {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.stats {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.stat-item i {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--secondary);
-}
-
-.about-image {
-  flex: 1;
-  height: 300px;
-  border-radius: 15px;
-  overflow: hidden;
-  background: linear-gradient(45deg, #1a3a6c, #457b9d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: 
-      linear-gradient(45deg, #1a3a6c 25%, transparent 25%),
-      linear-gradient(-45deg, #1a3a6c 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #1a3a6c 75%),
-      linear-gradient(-45deg, transparent 75%, #1a3a6c 75%);
-  background-size: 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-/* Leadership Section */
-.leadership-section {
-  padding: 4rem 5%;
-}
-
-.leadership-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.leadership-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.leader-card {
-  text-align: center;
-  padding: 2.5rem;
-  overflow: hidden;
-  position: relative;
-}
-
-.leader-image {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  margin: 0 auto 1.5rem;
-  padding: 0;
-  border: 0;
-  background: none;
-  box-shadow: 0 4px 12px rgba(60, 0, 0, 0.3);
-  border: 3px solid var(--accent);
-}
-.leader-card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-}
-
-.leader-card p:not(.bio) {
-  color: var(--secondary);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.bio {
-  opacity: 0.9;
-  font-style: italic;
-}
-
-/* Services Section */
-.services-section {
-  padding: 0 5%;
-  margin-bottom: 3rem;
-}
-
-.services-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.service-card {
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-10px);
-}
-
-.service-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: var(--secondary);
-}
-
-.service-card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.service-card p {
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-}
-
-.service-details {
-  margin: 1.5rem 0;
-  text-align: left;
-}
-
-.service-details p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 0.5rem;
-}
-
-.service-details i {
-  color: var(--secondary);
-  width: 20px;
-}
-
-/* Service Times */
-.service-times {
-  padding: 4rem 5%;
-}
-
-.service-times h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.schedule-item {
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.schedule-item .day {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--secondary);
-}
-
-.events p {
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
-}
-
-/* Sermons Section */
-.sermons-section {
-  padding: 0 5%;
-  margin-bottom: 3rem;
-}
-
-.sermons-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.sermons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.sermon-card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.sermon-image {
-  height: 200px;
-  background: linear-gradient(45deg, #1a3a6c, #457b9d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-size: 1.2rem;
-  position: relative;
-}
-
-.sermon-date {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-
-.sermon-info {
-  padding: 1.5rem;
-}
-
-.sermon-info h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-}
-
-.sermon-speaker {
-  color: var(--secondary);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.sermon-desc {
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-}
-
-.sermon-actions {
-  display: flex;
-  gap: 1rem;
-}
-
-/* Sermon Archive */
-.sermon-archive {
-  padding: 4rem 5%;
-}
-
-.sermon-archive h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-}
-
-.archive-filters {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.archive-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.archive-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.archive-info h4 {
-  margin-bottom: 0.5rem;
-}
-
-.archive-info p {
-  opacity: 0.8;
-}
-
-.archive-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* Gallery Section */
-.gallery-section {
-  padding: 0 5%;
-  margin-bottom: 3rem;
-}
-
-.gallery-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-}
-
-.gallery-filters {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 3rem;
-}
-
-.gallery-item {
-  height: 250px;
-  position: relative; /* 👈 Essential for overlay positioning */
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  border-radius: 15px;
-  overflow: hidden; /* 👈 Prevents image overflow */
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
-}
-
-.gallery-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-  color: var(--accent); /* Uses your accent color */
-  text-align: center;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 👈 Crops image to fill space */
-  object-position: center; /* Centers the subject */
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .gallery-image {
-  transform: scale(1.05); /* Optional: subtle zoom on hover */
-}
-
-.gallery-item:hover .gallery-overlay {
-  transform: translateY(0);
-}
-
-.gallery-overlay h4 {
-  margin-bottom: 0.3rem;
-}
-
-/* ===== GALLERY MODAL / SLIDER ===== */
-
-/* Full Screen Modal Styles */
-.full-screen-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-}
-
-.full-screen-image {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10001;
-}
-
-.close-btn:hover {
-    color: #ccc;
-}
-
-/* Album Styles */
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 3rem;
-}
-
-.album {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--glass-shadow);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    height: 200px;
-    position: relative;
-}
-
-.album:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.album img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.album-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.expanded-view {
-    display: none;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: var(--glass-shadow);
-    margin-top: 20px;
-    margin-bottom: 3rem;
-}
-
-.expanded-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.expanded-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-.close-btn {
-    background: var(--secondary);
-    color: white;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 10;
-    transition: all 0.3s;
-}
-
-.close-btn:hover {
-    background: #ff2e43;
-    transform: scale(1.05);
-}
-
-.photos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.photo {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    height: 180px;
-    position: relative;
-    cursor: pointer;
-}
-
-.photo:hover {
-    transform: scale(1.05);
-    z-index: 10;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.back-to-gallery {
-    display: inline-block;
-    margin: 20px auto;
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: block;
-}
-
-.back-to-gallery:hover {
-    background: #2a5a8c;
-    transform: translateY(-3px);
-}
-
-/* Album Full View Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    display: block;
-    position: relative;
-}
-
-.modal-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.nav-btn {
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
-    transform: scale(1.05);
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 7px;
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    color: red;
-    font-size: 1.5rem;
-    width: 20px;
-    height: 20px;
-    border-radius: 40%;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.close-modal:hover {
-    background: rgba(196, 1, 1, 0.5);
-}
-
-.modal-counter {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 1rem;
-}
-
-/* Videos Section */
-.videos-section {
-  padding: 4rem 5%;
-}
-
-.videos-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.video-card {
-  text-align: center;
-  padding: 2rem;
-}
-
-.video-placeholder {
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(45deg, #1a3a6c, #457b9d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  border-radius: 15px;
-}
-
-.video-placeholder i {
-  font-size: 4rem;
-  color: var(--accent);
-}
-
-.video-card h3 {
-  margin-bottom: 0.5rem;
-}
-
-.video-card p {
-  opacity: 0.8;
-}
-
-/* Video Modal */
-#videoModal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.video-container {
-  max-width: 90%;
-  max-height: 90vh;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-}
-
-#fullScreenVideo {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  background: #000;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 12px 32px;
-  background: var(--secondary);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid var(--secondary);
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: transparent;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn.outline {
-  background: transparent;
-  color: var(--accent);
-}
-
-.btn.outline:hover {
-  background: var(--secondary);
-  color: white;
-}
-
-.btn.small {
-  padding: 8px 20px;
-  font-size: 0.9rem;
-}
-
-.btn.tiny {
-  padding: 5px 12px;
-  font-size: 0.8rem;
-}
-
-.btn.active {
-  background: var(--secondary);
-  color: white;
-}
-
-/* Footer */
-footer {
-  padding: 3rem 5%;
-  margin-top: 5rem;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.footer-logo i {
-  font-size: 2rem;
-  color: var(--accent);
-}
-
-.footer-logo h3 {
-  font-size: 1.5rem;
-  background: linear-gradient(to right, var(--accent), #a8dadc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.footer-contact p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 0.8rem;
-}
-
-.footer-social {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.footer-social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--accent);
-  transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-  background: var(--secondary);
-  transform: translateY(-3px);
-}
-
-.copyright {
-  text-align: center;
-  padding-top: 1.5rem;
-  opacity: 0.8;
-}
-
-.rccg-logo {
-  width: 60px;
-  height: auto;
-  margin-right: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.event img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto; /* optional: centers the image */
-}
-
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .rccg-logo {
-    width: 50px;
-  }
-
-  .logo h1 {
-    font-size: 1.3rem;
-  }
-}
-@media (max-width: 992px) {
-  .hero-content h1 {
-      font-size: 2.8rem;
-  }
-  
-  .about-content,
-  .stats {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
-  
-  .stats {
-      gap: 1.5rem;
-  }
-  
-  .footer-content {
-      flex-direction: column;
-      text-align: center;
-  }
-  
-  .archive-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-  }
-  
-  .archive-actions {
-      align-self: flex-end;
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-      padding: 1rem 5%;
-      flex-direction: column;
-      gap: 1.5rem;
-  }
-  
-  nav ul {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-  }
-  
-  .hero-content h1 {
-      font-size: 2.2rem;
-  }
-  
-  .hero-btns {
-      flex-direction: column;
-      align-items: center;
-  }
-  
-  .btn.outline {
-      margin-left: 0;
-      margin-top: 1rem;
-  }
-  
-  .events-grid,
-  .leadership-grid,
-  .services-grid,
-  .schedule-grid,
-  .sermons-grid,
-  .gallery-grid,
-  .videos-grid {
-      grid-template-columns: 1fr;
-  }
-  
-  .schedule-item .day {
-      font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-      padding: 2rem 1.5rem;
-  }
-  
-  .hero-content {
-      padding: 2rem 1.5rem;
-  }
-  
-  .hero-content h1 {
-      font-size: 1.8rem;
-  }
-  
-  .event-card {
-      flex-direction: column;
-      text-align: center;
-  }
-  
-  .event-date {
-      margin-right: 0;
-      margin-bottom: 1rem;
-  }
-  
-  .service-details {
-      text-align: center;
-  }
-  
-  .btn {
-      padding: 10px 24px;
-  }
-  
-  .btn.small {
-      padding: 6px 16px;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCCG New Life Assembly Area - Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out', 
+        once: true
+      });
+    </script>
+
+    <!-- Header with Navigation -->
+    <header class="glass">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="RCCG New Life Assembly" class="rccg-logo">
+            <h1 data-aos="fade-up" data-aos-delay="300">RCCG New Life Assembly Area</h1>
+        </div>
+        <nav>
+            <ul>
+                <li data-aos="fade-down" data-aos-delay="50"><a href="index.html" class="nav-link">Home</a></li>
+                <li data-aos="fade-down" data-aos-delay="100"><a href="about.html" class="nav-link">About Us</a></li>
+                <li data-aos="fade-down" data-aos-delay="150"><a href="services.html" class="nav-link">Services</a></li>
+                <li data-aos="fade-down" data-aos-delay="200"><a href="sermons.html" class="nav-link">Sermons</a></li>
+                <li data-aos="fade-down" data-aos-delay="250"><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <main data-aos="fade-up" data-aos-delay="50">
+        <section class="gallery-section">
+            <div class="container glass">
+                <h2>Church Gallery</h2>
+                
+                <!-- Album Section -->
+                <div class="album-section">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent); font-size: 1.8rem;">Albums</h3>
+                    <div class="album-grid" id="albumGrid">
+                        <!-- Services Album -->
+                        <div class="album" 
+                             data-title="Services" 
+                             data-cover="images/African praise 3.jpg"
+                             data-photos="images/African praise 1.jpg,images/African praise 2.jpg,images/African praise 3.jpg,images/African praise 4.jpg,images/African praise 5.jpg,images/African praise 6.jpg,images/African praise 7.jpg,images/African praise 8.jpg,images/African praise 9.jpg,images/African praise 10.jpg,images/African praise 12.jpg,images/African praise 13.jpg">
+                            <img src="images/African praise 3.jpg" alt="Services">
+                            <div class="album-title">African Praise | Oct 26</div>
+                        </div>
+                        
+                        <!-- Events Album -->
+                        <div class="album" 
+                             data-title="Services" 
+                             data-cover="images/Thanks Giving 1.jpg"
+                             data-photos="images/Thanks Giving 1.jpg,images/Thanks Giving 2.jpg,images/Thanks Giving 3.jpg,images/Thanks Giving 4.jpg,images/Thanks Giving 5.jpg,images/Thanks Giving 6.jpg,images/Thanks Giving 7.jpg,images/Thanks Giving 8.jpg,images/Thanks Giving 9.jpg,images/Thanks Giving 10.jpg, images/Thanks Giving 11.jpg">
+                            <img src="images/Thanks Giving 1.jpg" alt="Thanks Giving">
+                            <div class="album-title">Thanksgiving Sunday | Nov 2</div>
+                        </div>
+                        
+                        <!-- Outreach Album -->
+                        <div class="album" 
+                             data-title="Annual Good Womens Programme" 
+                             data-cover="images/Annual 1.JPG"
+                             data-photos="images/Annual 1.JPG,images/Annual 2.JPG,images/Annual 3.JPG,images/Annual 4.JPG,images/Annual 5.JPG,images/Annual 6.JPG,images/Annual 7.JPG,images/Annual 8.JPG,images/Annual 9.JPG,images/Annual 10.JPG,images/Annual 11.JPG,images/Annual 12.JPG,images/Annual 13.JPG,images/Annual 14.JPG,images/Annual 15.JPG,images/Annual 16.JPG,images/Annual 17.JPG">
+                            <img src="images/Annual 1.JPG" alt="Annual programme">
+                            <div class="album-title">Anual Good Women Programme | NOV 16</div>
+                        </div>
+                        
+                        <!-- Fellowship Album -->
+                        <div class="album" 
+                             data-title="Fellowship" 
+                             data-cover="images/children-sunday.jpg"
+                             data-photos=>
+                            <img src="images/children-sunday.jpg" alt="Fellowship">
+                            <div class="album-title">Fellowship</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Expanded View -->
+                <div class="expanded-view" id="expandedView">
+                    <div class="expanded-header">
+                        <h2 class="expanded-title" id="expandedTitle">Album Title</h2>
+                        <button class="close-btn" id="closeBtn">Close Album</button>
+                    </div>
+                    <div class="photos-grid" id="photosGrid">
+                        <!-- Photos will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Back to Gallery Button -->
+                <button class="back-to-gallery" id="backToGallery" style="display: none;">Back to Gallery</button>
+                
+                <!-- Normal Pictures Section -->
+                <div class="normal-pictures-section">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent); font-size: 1.8rem;">Normal Pictures</h3>
+                    <div class="gallery-grid" id="galleryGrid">
+                        <div class="gallery-item glass" onclick="openFullScreen('images/media team.JPG')">
+                            <img src="images/media team.JPG" alt="Media Team" class="gallery-image">
+                            <div class="gallery-overlay">
+                              <h4>Media Team</h4>
+                              <p>Click to view</p>
+                            </div>
+                          </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/sunday service.JPG')">
+                            <img src="images/sunday service.JPG" alt="Sunday service" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Sunday Service</h4>
+                                <p>Oct 12, 2025</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/baptismal class.JPG')">
+                            <img src="images/baptismal class.JPG" alt="Baptismal class" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Baptismal Class</h4>
+                                <p>Oct 5, 2025</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/Provincial visit.JPG')">
+                            <img src="images/Provincial visit.JPG" alt="Provincial Visit" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Provincial Visit</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item glass" onclick="openFullScreen('images/sunday service 2.JPG')">
+                            <img src="images/sunday service 2.JPG" alt="Sunday Service" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Sunday Service</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item glass" onclick="openFullScreen('images/pastor&pastormrs oyewole.JPG')">
+                            <img src="" alt="Digging Deep" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Digging Deep</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/netflix.png')">
+                            <img src="" alt="" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Faith clinic</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/i-must-pray.jpg')">
+                            <img src="images/i-must-pray.jpg" alt="I Must Pray" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>I Must Pray</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/children-sunday.jpg')">
+                            <img src="images/" alt="Children Sunday" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Children Sunday</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/church-exterior.jpg')">
+                            <img src="images/church-exterior.jpg" alt="Church Building" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Church Building</h4>
+                                <p>Exterior View</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/church-interior.jpg')">
+                            <img src="images/church-interior.jpg" alt="Church Building" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Church Building</h4>
+                                <p>Interior View</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item glass" onclick="openFullScreen('images/youth-sunday-old-school.jpg')">
+                            <img src="images/youth-sunday-old-school.jpg" alt="Youth Sunday" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <h4>Youth Sunday</h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <!-- Video Section -->
+<section class="videos-section glass">
+    <h2>Featured Videos</h2>
+    <div class="videos-grid">
+        <div class="video-card glass" data-video-src="videos/test-video.mp4" onclick="openVideoModal(this)">
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Test Video</h3>
+            <p>Click to play</p>
+        </div>
+        <div class="video-card glass" data-video-src="videos/youth-programme-been-god.mp4" onclick="openVideoModal(this)">
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Youth Programme: It's Been God</h3>
+            <p>May 20, 2023 | 3 hours (example)</p>
+        </div>
+        <div class="video-card glass" data-video-src="videos/jesus-market.mp4" onclick="openVideoModal(this)">
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Jesus Market</h3>
+            <p></p>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-church"></i>
+                <h3>RCCG New Life Assembly Area</h3>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-map-marker-alt"></i>31, Hill Top Street</p>
+                <p><i class="fas fa-phone"></i></p>
+                <p><i class="fas fa-envelope"></i>newlifeassembllyarea@gmail.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/17D6BdmU7n/"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://vt.tiktok.com/ZSUSMQoeh/"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full Screen Image Modal -->
+    <div id="fullScreenModal" class="full-screen-modal" onclick="closeFullScreen()">
+        <span class="close-btn">&times;</span>
+        <img class="full-screen-image" id="fullScreenImage" src="" alt="Full Screen Image">
+    </div>
+
+    <!-- Full Screen Video Modal -->
+<div id="videoModal" class="full-screen-modal" onclick="closeVideoModal()">
+    <span class="close-btn">&times;</span>
+    <div class="video-container">
+        <video id="fullScreenVideo" controls autoplay playsinline muted>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+<!-- Album Full View Modal -->
+<div class="modal" id="albumFullViewModal">
+    <span class="close-modal" id="albumCloseModal">&times;</span>
+    <img class="modal-content" id="albumModalImage">
+    <div class="modal-nav">
+        <button class="nav-btn" id="albumPrevBtn">&#10094;</button>
+        <button class="nav-btn" id="albumNextBtn">&#10095;</button>
+    </div>
+    <div class="modal-counter" id="albumModalCounter">1 / 6</div>
+</div>
+
+    <script src="script.js"></script>
+
+   
+</body>
+</html>
